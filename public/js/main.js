@@ -1,3 +1,5 @@
+const salaryStandoffApiUrl = "http://localhost:8080"
+
 function handleCandidateSalaryForm(form) {
     var data = {};
     for (var i = 0, ii = form.length; i < ii; ++i) {
@@ -9,7 +11,7 @@ function handleCandidateSalaryForm(form) {
 
     // construct an HTTP request
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', "http://localhost:8080/candidate_condition");
+    xhr.open('POST', `${salaryStandoffApiUrl}/candidate_condition`);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xhr.send(JSON.stringify(data));
 
