@@ -20,7 +20,7 @@ function handleCandidateSalaryForm(form) {
             $('#candidate-salary-form').hide()
             $('#employer-salary-url').show()
             const resp = JSON.parse(xhr.responseText)
-            $('#employer-salary-url-card').text(`http://localhost:63342/salary-standoff-ui/public/index.html/${resp.conditionId}`)
+            $('#employer-salary-url-card').text(`${window.location.href}?conditionId=${resp.conditionId}`)
         }
     }
 
