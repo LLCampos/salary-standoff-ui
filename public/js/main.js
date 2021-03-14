@@ -15,7 +15,10 @@ function handleCandidateSalaryForm(form) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            console.log(xhr.responseText)
+            $('#candidate-salary-form').hide()
+            $('#employer-salary-url').show()
+            const resp = JSON.parse(xhr.responseText)
+            $('#employer-salary-url-card').text(`http://localhost:63342/salary-standoff-ui/public/index.html/${resp.conditionId}`)
         }
     }
 
