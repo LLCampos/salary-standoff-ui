@@ -9,19 +9,10 @@ $(document).ready(function() {
 const salaryStandoffApiUrl = "http://localhost:8080"
 
 function handleCandidateSalaryForm(form) {
-    var data = {};
-    for (var i = 0, ii = form.length; i < ii; ++i) {
-        var input = form[i];
-        if (input.name) {
-            data[input.name] = input.value;
-        }
-    }
-
-    // construct an HTTP request
     var xhr = new XMLHttpRequest();
     xhr.open('POST', `${salaryStandoffApiUrl}/candidate_condition`);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(getFormData(form)));
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -36,21 +27,12 @@ function handleCandidateSalaryForm(form) {
 }
 
 function handleEmployerSalaryForm(form) {
-    var data = {};
-    for (var i = 0, ii = form.length; i < ii; ++i) {
-        var input = form[i];
-        if (input.name) {
-            data[input.name] = input.value;
-        }
-    }
-
     const conditionId = getUrlParameter("conditionId")
 
-    // construct an HTTP request
     var xhr = new XMLHttpRequest();
     xhr.open('POST', `${salaryStandoffApiUrl}/employer_condition/${conditionId}`);
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(getFormData(form)));
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -81,4 +63,15 @@ function getUrlParameter(sParam) {
         }
     }
     return false;
+}
+
+function getFormData(form) {
+    var data = {};
+    for (var i = 0, ii = form.length; i < ii; ++i) {
+        var input = form[i];
+        if (input.name) {
+            data[input.name] = input.value;
+        }
+    }
+    return data;
 }
