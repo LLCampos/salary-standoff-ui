@@ -30,7 +30,7 @@
 </div>
 
 <div class="container top-medium-buffer">
-    <form id="candidate-salary-form">
+    <form id="candidate-salary-form" onsubmit="return handleCandidateSalaryForm(this)">
         <div class="mb-3 center-text">
             <label for="minSalaryAcceptable" class="form-label">What's your minimum acceptable salary?</label>
             <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
