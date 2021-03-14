@@ -30,10 +30,22 @@
 </div>
 
 <div class="container top-medium-buffer">
-    <form id="candidate-salary-form" onsubmit="return handleCandidateSalaryForm(this)">
+    <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
         <div class="mb-3 center-text">
             <label for="minSalaryAcceptable" class="form-label">What's your minimum acceptable salary?</label>
             <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
+        </div>
+        <div class="center-text top-small-buffer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div class="container top-medium-buffer">
+    <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="">
+        <div class="mb-3 center-text">
+            <label for="maxSalaryAcceptable" class="form-label">What's your maximum acceptable salary?</label>
+            <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
         </div>
         <div class="center-text top-small-buffer">
             <button type="submit" class="btn btn-primary">Submit</button>
