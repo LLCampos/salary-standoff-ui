@@ -35,6 +35,38 @@ function handleCandidateSalaryForm(form) {
     return false;
 }
 
+function handleEmployerSalaryForm(form) {
+    var data = {};
+    for (var i = 0, ii = form.length; i < ii; ++i) {
+        var input = form[i];
+        if (input.name) {
+            data[input.name] = input.value;
+        }
+    }
+
+    const conditionId = getUrlParameter("conditionId")
+
+    // construct an HTTP request
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', `${salaryStandoffApiUrl}/employer_condition/${conditionId}`);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.send(JSON.stringify(data));
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            $('#employer-salary-form').hide();
+            const resp = JSON.parse(xhr.responseText);
+            if (resp.areConditionsCompatible) {
+                $("#compatible-badge").show()
+            } else {
+                $("#non-compatible-badge").show()
+            }
+        }
+    }
+
+    return false;
+}
+
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),

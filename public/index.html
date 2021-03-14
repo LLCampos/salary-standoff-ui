@@ -42,7 +42,7 @@
 </div>
 
 <div class="container top-medium-buffer">
-    <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="">
+    <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
         <div class="mb-3 center-text">
             <label for="maxSalaryAcceptable" class="form-label">What's your maximum acceptable salary?</label>
             <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
@@ -51,6 +51,14 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
+</div>
+
+<div class="container top-medium-buffer center-text" style="display:none" id="compatible-badge">
+    <span class="badge bg-success">Compatible! :)</span>
+</div>
+
+<div class="container top-medium-buffer center-text" style="display:none" id="non-compatible-badge">
+    <span class="badge bg-danger">Not Compatible! :(</span>
 </div>
 
 <div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
