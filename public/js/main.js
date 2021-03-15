@@ -34,8 +34,12 @@ function handleEmployerSalaryForm(form) {
         }
     }
 
-    function onFailure() {
-        $('#error-badge').show()
+    function onFailure(status) {
+        if (status === 404) {
+            $('#already-verified-badge').show()
+        } else {
+            $('#error-badge').show()
+        }
     }
 
     const conditionId = getUrlParameter("conditionId")
@@ -57,7 +61,7 @@ function handleForm(form, endpoint, formId, onSuccess, onFailure) {
             if (xhr.status === 200) {
                 onSuccess(xhr.responseText)
             } else {
-                onFailure()
+                onFailure(xhr.status)
             }
         }
     }
