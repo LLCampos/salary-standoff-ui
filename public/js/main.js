@@ -23,26 +23,23 @@ function handleCandidateSalaryForm(form) {
 }
 
 function handleEmployerSalaryForm(form) {
-    const conditionId = getUrlParameter("conditionId")
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', `${salaryStandoffApiUrl}/employer_condition/${conditionId}`);
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.send(JSON.stringify(getFormData(form)));
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            $('#employer-salary-form').hide();
-            const resp = JSON.parse(xhr.responseText);
-            if (resp.areConditionsCompatible) {
-                $("#compatible-badge").show()
-            } else {
-                $("#non-compatible-badge").show()
-            }
+    function onSuccess(responseText) {
+        $('#employer-salary-form').hide();
+        const resp = JSON.parse(responseText);
+        if (resp.areConditionsCompatible) {
+            $("#compatible-badge").show()
+        } else {
+            $("#non-compatible-badge").show()
         }
     }
 
-    return false;
+    function onFailure() {
+        $('#error-badge').show()
+    }
+
+    const conditionId = getUrlParameter("conditionId")
+    return handleForm(form, `employer_condition/${conditionId}`, 'employer-salary-form', onSuccess, onFailure)
 }
 
 function handleForm(form, endpoint, formId, onSuccess, onFailure) {
