@@ -14,12 +14,19 @@ function handleCandidateSalaryForm(form) {
     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xhr.send(JSON.stringify(getFormData(form)));
 
+    $('#candidate-salary-form').hide()
+    $('#spinner').show()
+
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            $('#candidate-salary-form').hide()
-            $('#employer-salary-url').show()
-            const resp = JSON.parse(xhr.responseText)
-            $('#employer-salary-url-card').text(`${window.location.href}?conditionId=${resp.conditionId}`)
+            $('#spinner').hide()
+            if (xhr.status === 200) {
+                $('#employer-salary-url').show()
+                const resp = JSON.parse(xhr.responseText)
+                $('#employer-salary-url-card').text(`${window.location.href}?conditionId=${resp.conditionId}`)
+            } else {
+                $('#error-badge').show()
+            }
         }
     }
 
