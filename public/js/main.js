@@ -9,28 +9,17 @@ $(document).ready(function() {
 const salaryStandoffApiUrl = "http://localhost:8080"
 
 function handleCandidateSalaryForm(form) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', `${salaryStandoffApiUrl}/candidate_condition`);
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    xhr.send(JSON.stringify(getFormData(form)));
-
-    $('#candidate-salary-form').hide()
-    $('#spinner').show()
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            $('#spinner').hide()
-            if (xhr.status === 200) {
-                $('#employer-salary-url').show()
-                const resp = JSON.parse(xhr.responseText)
-                $('#employer-salary-url-card').text(`${window.location.href}?conditionId=${resp.conditionId}`)
-            } else {
-                $('#error-badge').show()
-            }
-        }
+    function onSuccess(responseText) {
+        $('#employer-salary-url').show()
+        const resp = JSON.parse(responseText)
+        $('#employer-salary-url-card').text(`${window.location.href}?conditionId=${resp.conditionId}`)
     }
 
-    return false;
+    function onFailure() {
+        $('#error-badge').show()
+    }
+
+    return handleForm(form, 'candidate_condition', 'candidate-salary-form', onSuccess, onFailure)
 }
 
 function handleEmployerSalaryForm(form) {
@@ -49,6 +38,29 @@ function handleEmployerSalaryForm(form) {
                 $("#compatible-badge").show()
             } else {
                 $("#non-compatible-badge").show()
+            }
+        }
+    }
+
+    return false;
+}
+
+function handleForm(form, endpoint, formId, onSuccess, onFailure) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', `${salaryStandoffApiUrl}/${endpoint}`);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.send(JSON.stringify(getFormData(form)));
+
+    $("#" + formId).hide()
+    $('#spinner').show()
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            $('#spinner').hide()
+            if (xhr.status === 200) {
+                onSuccess(xhr.responseText)
+            } else {
+                onFailure()
             }
         }
     }
