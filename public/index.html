@@ -15,76 +15,117 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link active" id="home-nav" aria-current="page" href="#" onclick="showHomeContent()">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="what.html">What</a>
+                    <a class="nav-link" id="what-nav" href='#' onclick="showWhatContent()">What</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="who.html">Who</a>
+                    <a class="nav-link" id="who-nav" href="#" onclick="showWhoContent()">Who</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container">
-    <h1 class="home-header">Salary Standoff</h1>
-</div>
+<div id="home">
+    <div class="container">
+        <h1 class="home-header">Salary Standoff</h1>
+    </div>
 
-<div class="container top-medium-buffer">
-    <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
-        <div class="mb-3 center-text">
-            <label for="minSalaryAcceptable" class="form-label">
-                As a candidate, what's your minimum acceptable salary?
-            </label>
-            <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
+    <div class="container top-medium-buffer">
+        <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
+            <div class="mb-3 center-text">
+                <label for="minSalaryAcceptable" class="form-label">
+                    As a candidate, what's your minimum acceptable salary?
+                </label>
+                <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
+            </div>
+            <div class="center-text top-small-buffer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container top-medium-buffer">
+        <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
+            <div class="mb-3 center-text">
+                <label for="maxSalaryAcceptable" class="form-label">
+                    As an employer, what's the maximum salary you're willing to pay this candidate?
+                </label>
+                <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
+            </div>
+            <div class="center-text top-small-buffer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container top-medium-buffer center-text" style="display:none" id="compatible-badge">
+        <span class="badge bg-success">Compatible! :)</span>
+    </div>
+
+    <div class="container top-medium-buffer center-text" style="display:none" id="non-compatible-badge">
+        <span class="badge bg-danger">Not Compatible! :(</span>
+    </div>
+
+    <div class="container top-medium-buffer center-text" style="display:none" id="error-badge">
+        <span class="badge bg-warning">Something is wrong! Try again later</span>
+    </div>
+
+    <div class="container top-medium-buffer center-text" style="display:none" id="already-verified-badge">
+        <span class="badge bg-primary">Compatibility was already checked for this id!</span>
+    </div>
+
+    <div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
+        Share the following link with the recruiter:
+        <div class="card">
+            <div class="card-body" id="employer-salary-url-card"></div>
         </div>
-        <div class="center-text top-small-buffer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
+    </div>
 
-<div class="container top-medium-buffer">
-    <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
-        <div class="mb-3 center-text">
-            <label for="maxSalaryAcceptable" class="form-label">
-                As an employer, what's the maximum salary you're willing to pay this candidate?
-            </label>
-            <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
-        </div>
-        <div class="center-text top-small-buffer">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
-
-<div class="container top-medium-buffer center-text" style="display:none" id="compatible-badge">
-    <span class="badge bg-success">Compatible! :)</span>
-</div>
-
-<div class="container top-medium-buffer center-text" style="display:none" id="non-compatible-badge">
-    <span class="badge bg-danger">Not Compatible! :(</span>
-</div>
-
-<div class="container top-medium-buffer center-text" style="display:none" id="error-badge">
-    <span class="badge bg-warning">Something is wrong! Try again later</span>
-</div>
-
-<div class="container top-medium-buffer center-text" style="display:none" id="already-verified-badge">
-    <span class="badge bg-primary">Compatibility was already checked for this id!</span>
-</div>
-
-<div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
-    Share the following link with the recruiter:
-    <div class="card">
-        <div class="card-body" id="employer-salary-url-card"></div>
+    <div class="container top-medium-buffer center-text" style="display:none" id="spinner">
+        <div class="spinner-border" role="status"></div>
     </div>
 </div>
 
-<div class="container top-medium-buffer center-text" style="display:none" id="spinner">
-    <div class="spinner-border" role="status"></div>
+<div id="what" style="display:none">
+    <div class="container">
+        <h1 class="home-header">What is this?</h1>
+    </div>
+
+    <div style='max-width: 35%' class="container top-medium-buffer">
+        You don't want to reveal your salary expectation to the company you're applying to. The company doesn't want to reveal their budget.
+        <br><br>
+        But neither of you want to waste time if your expectations are not compatible.
+        <br><br>
+        This app lets you know if your salary expectation is compatible with the company's budget, without revealing any numbers to either parties.
+        <br><br>
+        The code for this project is available at <a href="https://github.com/LLCampos/salary-standoff-ui">salary-standoff-ui</a> and <a href="https://github.com/LLCampos/salary-standoff-api">salary-standoff-api</a>.
+    </div>
+
+    <div id="mexican-standoff" class="container top-medium-buffer bottom-medium-buffer">
+        <figure>
+            <a href="https://impurepics.com/posts/2020-07-26-what-is-your-salary.html">
+                <img style="width: 100%" src="images/mexican-standoff.jpeg" alt="what is your salary">
+            </a>
+            <figcaption class="center-text">
+                <a href="https://impurepics.com/">impurepics</a>
+            </figcaption>
+        </figure>
+    </div>
+</div>
+
+<div id="who" style="display:none">
+    <div class="container">
+        <h1 class="home-header">Who built this?</h1>
+    </div>
+
+    <div style='max-width: 35%' class="container top-medium-buffer">
+        This tool was built by me, Luís Campos. Check my <a href="https://github.com/llcampos/">GitHub</a> and my <a href="https://llcampos.wordpress.com/">personal page</a>.
+        <br><br>
+        If you have any questions/comments you can contact me at <a href="mailto:luis.filipe.lcampos@gmail.com">luis.filipe.lcampos@gmail.com</a>.
+    </div>
 </div>
 
 <!--https://tholman.com/github-corners/-->

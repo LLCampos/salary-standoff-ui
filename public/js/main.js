@@ -95,3 +95,42 @@ function getFormData(form) {
     }
     return data;
 }
+
+function hideHomeContent() {
+    $('#home').hide();
+    $('#home-nav').removeClass('active');
+}
+
+function hideWhatContent() {
+    $('#what').hide();
+    $('#what-nav').removeClass('active');
+}
+
+function hideWhoContent() {
+    $('#who').hide();
+    $('#who-nav').removeClass('active');
+}
+
+function showHomeContent() {
+    hideWhatContent()
+    hideWhoContent()
+
+    $('#home').show();
+    $('#home-nav').addClass('active');
+}
+
+function showWhatContent() {
+    hideHomeContent()
+    hideWhoContent()
+
+    $('#what').show();
+    $('#what-nav').addClass('active');
+}
+
+function showWhoContent() {
+    hideHomeContent()
+    hideWhatContent()
+
+    $('#who').show();
+    $('#who-nav').addClass('active');
+}
