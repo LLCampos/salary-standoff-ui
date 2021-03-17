@@ -27,6 +27,10 @@
     max-width: 50%;
 }
 
+.fake-link {
+    cursor: pointer;
+}
+
 
 /* Hide number input arrows */
 
