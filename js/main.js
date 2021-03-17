@@ -96,6 +96,10 @@ function getFormData(form) {
     return data;
 }
 
+function removeUrlParameters() {
+    window.history.replaceState(null, null, location.pathname)
+}
+
 function hideHomeContent() {
     $('#home').hide();
     $('#home-nav').removeClass('active');
@@ -114,6 +118,7 @@ function hideWhoContent() {
 function showHomeContent() {
     hideWhatContent()
     hideWhoContent()
+    removeUrlParameters()
 
     $('#home').show();
     $('#home-nav').addClass('active');
@@ -122,6 +127,7 @@ function showHomeContent() {
 function showWhatContent() {
     hideHomeContent()
     hideWhoContent()
+    removeUrlParameters()
 
     $('#what').show();
     $('#what-nav').addClass('active');
@@ -130,6 +136,7 @@ function showWhatContent() {
 function showWhoContent() {
     hideHomeContent()
     hideWhatContent()
+    removeUrlParameters()
 
     $('#who').show();
     $('#who-nav').addClass('active');
