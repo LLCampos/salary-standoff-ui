@@ -6,7 +6,7 @@ $(document).ready(function() {
     }
 })
 
-const salaryStandoffApiUrl = "http://localhost:8080"
+const salaryStandoffApiUrl = "https://pacific-refuge-53323.herokuapp.com"
 
 function handleCandidateSalaryForm(form) {
     function onSuccess(responseText) {
