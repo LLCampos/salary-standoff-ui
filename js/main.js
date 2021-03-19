@@ -115,9 +115,15 @@ function hideWhoContent() {
     $('#who-nav').removeClass('active');
 }
 
+function hideHowContent() {
+    $('#how').hide();
+    $('#how-nav').removeClass('active');
+}
+
 function showHomeContent() {
     hideWhatContent()
     hideWhoContent()
+    hideHowContent()
     removeUrlParameters()
 
     $('#home').show();
@@ -127,6 +133,7 @@ function showHomeContent() {
 function showWhatContent() {
     hideHomeContent()
     hideWhoContent()
+    hideHowContent()
     removeUrlParameters()
 
     $('#what').show();
@@ -136,8 +143,19 @@ function showWhatContent() {
 function showWhoContent() {
     hideHomeContent()
     hideWhatContent()
+    hideHowContent()
     removeUrlParameters()
 
     $('#who').show();
     $('#who-nav').addClass('active');
+}
+
+function showHowContent() {
+    hideHomeContent()
+    hideWhatContent()
+    hideWhoContent()
+    removeUrlParameters()
+
+    $('#how').show();
+    $('#how-nav').addClass('active');
 }
