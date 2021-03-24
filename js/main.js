@@ -33,7 +33,7 @@ function getMetadataFromFormData(formData) {
         currency: formData.currency,
         grossOrNet: formData.grossOrNet,
         annualOrMonthly: formData.annualOrMonthly,
-        extraComments: formData.extraComments
+        extraComments: (formData.extraComments === "") ? null : formData.extraComments
     }
 }
 
