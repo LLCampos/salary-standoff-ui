@@ -1,10 +1,30 @@
 $(document).ready(function() {
-    const urlParameter = getUrlParameter("conditionId")
-    if (urlParameter) {
+    const conditionId = getUrlParameter("conditionId")
+    if (conditionId) {
         $('#candidate-salary-form').hide()
-        $('#employer-salary-form').show()
+        showEmployerSalaryForm(conditionId)
     }
 })
+
+function showEmployerSalaryForm(conditionId) {
+    $('#employer-salary-form').show()
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `${salaryStandoffApiUrl}/condition/metadata/${conditionId}`, true);
+    xhr.send(null);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            const jsonResp = JSON.parse(xhr.responseText)
+            $('#currency-employer-form').text(jsonResp.currency)
+            $('#gross-or-net-employer-form').text(jsonResp.grossOrNet)
+            $('#annual-or-monthly-employer-form').text(jsonResp.annualOrMonthly)
+            if (jsonResp.extraComments) {
+                $('#extra-comments-div-employer-form').show()
+                $('#extra-comments-employer-form').text(jsonResp.extraComments)
+            }
+        }
+    }
+}
 
 //const salaryStandoffApiUrl = "http://localhost:8080"
 const salaryStandoffApiUrl = "https://pacific-refuge-53323.herokuapp.com"

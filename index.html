@@ -200,8 +200,13 @@
             <div class="mb-3 center-text">
                 <label for="maxSalaryAcceptable" class="form-label">
                     As <b>someone looking to hire this candidate</b>, what's the maximum salary you're willing to offer?
+                    <br>
+                    (<span id="currency-employer-form"></span>, <span id="gross-or-net-employer-form"></span>, <span id="annual-or-monthly-employer-form"></span>)
                 </label>
                 <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
+            </div>
+            <div id="extra-comments-div-employer-form" style="display:none">
+                <b>Extra comments: </b><span id="extra-comments-employer-form"></span>
             </div>
             <div class="center-text top-small-buffer">
                 <button type="submit" class="btn btn-primary">Submit</button>
