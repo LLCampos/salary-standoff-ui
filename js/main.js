@@ -7,20 +7,25 @@ $(document).ready(function() {
 })
 
 function showEmployerSalaryForm(conditionId) {
-    $('#employer-salary-form').show()
-
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `${salaryStandoffApiUrl}/condition/metadata/${conditionId}`, true);
     xhr.send(null);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            const jsonResp = JSON.parse(xhr.responseText)
-            $('#currency-employer-form').text(jsonResp.currency)
-            $('#gross-or-net-employer-form').text(jsonResp.grossOrNet)
-            $('#annual-or-monthly-employer-form').text(jsonResp.annualOrMonthly)
-            if (jsonResp.extraComments) {
-                $('#extra-comments-div-employer-form').show()
-                $('#extra-comments-employer-form').text(jsonResp.extraComments)
+            if (xhr.status === 200) {
+                $('#employer-salary-form').show()
+                const jsonResp = JSON.parse(xhr.responseText)
+                $('#currency-employer-form').text(jsonResp.currency)
+                $('#gross-or-net-employer-form').text(jsonResp.grossOrNet)
+                $('#annual-or-monthly-employer-form').text(jsonResp.annualOrMonthly)
+                if (jsonResp.extraComments) {
+                    $('#extra-comments-div-employer-form').show()
+                    $('#extra-comments-employer-form').text(jsonResp.extraComments)
+                }
+            } else if (xhr.status === 404) {
+                $('#already-verified-badge').show()
+            } else {
+                $('#error-badge').show()
             }
         }
     }
