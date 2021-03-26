@@ -11,300 +11,307 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <span class="fake-link nav-link active" id="home-nav" aria-current="page" onclick="showHomeContent()">Home</span>
-                </li>
-                <li class="nav-item">
-                    <span class="fake-link nav-link" id="what-nav" onclick="showWhatContent()">What</span>
-                </li>
-                <li class="nav-item">
-                    <span class="fake-link nav-link" id="how-nav" onclick="showHowContent()">How</span>
-                </li>
-                <li class="nav-item">
-                    <span class="fake-link nav-link" id="who-nav" onclick="showWhoContent()">Who</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<div id="home">
-    <div class="container">
-        <h1 class="home-header">Salary Standoff</h1>
-    </div>
-
-    <div class="container top-medium-buffer">
-        <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
-            <div class="mb-3 center-text">
-                <label for="minSalaryAcceptable" class="form-label">
-                    As a <b>candidate</b>, what's your minimum acceptable salary?
-                </label>
-                <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
+<div class="pb-5">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <span class="fake-link nav-link active" id="home-nav" aria-current="page" onclick="showHomeContent()">Home</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="fake-link nav-link" id="what-nav" onclick="showWhatContent()">What</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="fake-link nav-link" id="how-nav" onclick="showHowContent()">How</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="fake-link nav-link" id="who-nav" onclick="showWhoContent()">Who</span>
+                    </li>
+                </ul>
             </div>
-            <div class="mb-3 row">
-                <div class="col">
-                    <label for="grossOrNet" class="form-label">Gross Or Net?</label>
-                    <select class="form-control" id="grossOrNet" name="grossOrNet">
-                        <option>Gross</option>
-                        <option>Net</option>
+        </div>
+    </nav>
+
+    <div id="home">
+        <div class="container">
+            <h1 class="home-header">Salary Standoff</h1>
+        </div>
+
+        <div class="container top-medium-buffer">
+            <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
+                <div class="mb-3 center-text">
+                    <label for="minSalaryAcceptable" class="form-label">
+                        As a <b>candidate</b>, what's your minimum acceptable salary?
+                    </label>
+                    <input type="number" class="form-control" id="minSalaryAcceptable" name="minSalaryAcceptable" required>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="grossOrNet" class="form-label">Gross Or Net?</label>
+                        <select class="form-control" id="grossOrNet" name="grossOrNet">
+                            <option>Gross</option>
+                            <option>Net</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="annualOrMonthly" class="form-label">Annual Or Monthly?</label>
+                        <select class="form-control" id="annualOrMonthly" name="annualOrMonthly">
+                            <option>Annual</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="currency" class="form-label">Currency</label>
+                    <select type="number" class="form-control" id="currency" name="currency">
+                        <option>AED (AED)</option>
+                        <option>AFN (Af)</option>
+                        <option>ALL (ALL)</option>
+                        <option>AMD (AMD)</option>
+                        <option>ARS (AR$)</option>
+                        <option>AUD (AU$)</option>
+                        <option>AZN (man.)</option>
+                        <option>BAM (KM)</option>
+                        <option>BDT (Tk)</option>
+                        <option>BGN (BGN)</option>
+                        <option>BHD (BD)</option>
+                        <option>BIF (FBu)</option>
+                        <option>BND (BN$)</option>
+                        <option>BOB (Bs)</option>
+                        <option>BRL (R$)</option>
+                        <option>BWP (BWP)</option>
+                        <option>BYN (Br)</option>
+                        <option>BZD (BZ$)</option>
+                        <option>CAD (CA$)</option>
+                        <option>CDF (CDF)</option>
+                        <option>CHF (CHF)</option>
+                        <option>CLP (CL$)</option>
+                        <option>CNY (CN¥)</option>
+                        <option>COP (CO$)</option>
+                        <option>CRC (₡)</option>
+                        <option>CVE (CV$)</option>
+                        <option>CZK (Kč)</option>
+                        <option>DJF (Fdj)</option>
+                        <option>DKK (Dkr)</option>
+                        <option>DOP (RD$)</option>
+                        <option>DZD (DA)</option>
+                        <option>EEK (Ekr)</option>
+                        <option>EGP (EGP)</option>
+                        <option>ERN (Nfk)</option>
+                        <option>ETB (Br)</option>
+                        <option selected="selected">EUR (€)</option>
+                        <option>GBP (£)</option>
+                        <option>GEL (GEL)</option>
+                        <option>GHS (GH₵)</option>
+                        <option>GNF (FG)</option>
+                        <option>GTQ (GTQ)</option>
+                        <option>HKD (HK$)</option>
+                        <option>HNL (HNL)</option>
+                        <option>HRK (kn)</option>
+                        <option>HUF (Ft)</option>
+                        <option>IDR (Rp)</option>
+                        <option>ILS (₪)</option>
+                        <option>INR (Rs)</option>
+                        <option>IQD (IQD)</option>
+                        <option>IRR (IRR)</option>
+                        <option>ISK (Ikr)</option>
+                        <option>JMD (J$)</option>
+                        <option>JOD (JD)</option>
+                        <option>JPY (¥)</option>
+                        <option>KES (Ksh)</option>
+                        <option>KHR (KHR)</option>
+                        <option>KMF (CF)</option>
+                        <option>KRW (₩)</option>
+                        <option>KWD (KD)</option>
+                        <option>KZT (KZT)</option>
+                        <option>LBP (LB£)</option>
+                        <option>LKR (SLRs)</option>
+                        <option>LTL (Lt)</option>
+                        <option>LVL (Ls)</option>
+                        <option>LYD (LD)</option>
+                        <option>MAD (MAD)</option>
+                        <option>MDL (MDL)</option>
+                        <option>MGA (MGA)</option>
+                        <option>MKD (MKD)</option>
+                        <option>MMK (MMK)</option>
+                        <option>MOP (MOP$)</option>
+                        <option>MUR (MURs)</option>
+                        <option>MXN (MX$)</option>
+                        <option>MYR (RM)</option>
+                        <option>MZN (MTn)</option>
+                        <option>NAD (N$)</option>
+                        <option>NGN (₦)</option>
+                        <option>NIO (C$)</option>
+                        <option>NOK (Nkr)</option>
+                        <option>NPR (NPRs)</option>
+                        <option>NZD (NZ$)</option>
+                        <option>OMR (OMR)</option>
+                        <option>PAB (B/.)</option>
+                        <option>PEN (S/.)</option>
+                        <option>PHP (₱)</option>
+                        <option>PKR (PKRs)</option>
+                        <option>PLN (zł)</option>
+                        <option>PYG (₲)</option>
+                        <option>QAR (QR)</option>
+                        <option>RON (RON)</option>
+                        <option>RSD (din.)</option>
+                        <option>RUB (RUB)</option>
+                        <option>RWF (RWF)</option>
+                        <option>SAR (SR)</option>
+                        <option>SDG (SDG)</option>
+                        <option>SEK (Skr)</option>
+                        <option>SGD (S$)</option>
+                        <option>SOS (Ssh)</option>
+                        <option>SYP (SY£)</option>
+                        <option>THB (฿)</option>
+                        <option>TND (DT)</option>
+                        <option>TOP (T$)</option>
+                        <option>TRY (TL)</option>
+                        <option>TTD (TT$)</option>
+                        <option>TWD (NT$)</option>
+                        <option>TZS (TSh)</option>
+                        <option>UAH (₴)</option>
+                        <option>UGX (USh)</option>
+                        <option>USD ($)</option>
+                        <option>UYU ($U)</option>
+                        <option>UZS (UZS)</option>
+                        <option>VEF (Bs.F.)</option>
+                        <option>VND (₫)</option>
+                        <option>XAF (FCFA)</option>
+                        <option>XOF (CFA)</option>
+                        <option>YER (YR)</option>
+                        <option>ZAR (R)</option>
+                        <option>ZMK (ZK)</option>
+                        <option>ZWL (ZWL$)</option>
                     </select>
                 </div>
-                <div class="col">
-                    <label for="annualOrMonthly" class="form-label">Annual Or Monthly?</label>
-                    <select class="form-control" id="annualOrMonthly" name="annualOrMonthly">
-                        <option>Annual</option>
-                        <option>Monthly</option>
-                    </select>
+                <div class="mb-3">
+                    <label for="extraComments" class="form-label">Extra Comments</label>
+                    <input type="text" class="form-control" id="extraComments" name="extraComments" placeholder="Anything else you want to tell the recruiter">
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="currency" class="form-label">Currency</label>
-                <select type="number" class="form-control" id="currency" name="currency">
-                    <option>AED (AED)</option>
-                    <option>AFN (Af)</option>
-                    <option>ALL (ALL)</option>
-                    <option>AMD (AMD)</option>
-                    <option>ARS (AR$)</option>
-                    <option>AUD (AU$)</option>
-                    <option>AZN (man.)</option>
-                    <option>BAM (KM)</option>
-                    <option>BDT (Tk)</option>
-                    <option>BGN (BGN)</option>
-                    <option>BHD (BD)</option>
-                    <option>BIF (FBu)</option>
-                    <option>BND (BN$)</option>
-                    <option>BOB (Bs)</option>
-                    <option>BRL (R$)</option>
-                    <option>BWP (BWP)</option>
-                    <option>BYN (Br)</option>
-                    <option>BZD (BZ$)</option>
-                    <option>CAD (CA$)</option>
-                    <option>CDF (CDF)</option>
-                    <option>CHF (CHF)</option>
-                    <option>CLP (CL$)</option>
-                    <option>CNY (CN¥)</option>
-                    <option>COP (CO$)</option>
-                    <option>CRC (₡)</option>
-                    <option>CVE (CV$)</option>
-                    <option>CZK (Kč)</option>
-                    <option>DJF (Fdj)</option>
-                    <option>DKK (Dkr)</option>
-                    <option>DOP (RD$)</option>
-                    <option>DZD (DA)</option>
-                    <option>EEK (Ekr)</option>
-                    <option>EGP (EGP)</option>
-                    <option>ERN (Nfk)</option>
-                    <option>ETB (Br)</option>
-                    <option selected="selected">EUR (€)</option>
-                    <option>GBP (£)</option>
-                    <option>GEL (GEL)</option>
-                    <option>GHS (GH₵)</option>
-                    <option>GNF (FG)</option>
-                    <option>GTQ (GTQ)</option>
-                    <option>HKD (HK$)</option>
-                    <option>HNL (HNL)</option>
-                    <option>HRK (kn)</option>
-                    <option>HUF (Ft)</option>
-                    <option>IDR (Rp)</option>
-                    <option>ILS (₪)</option>
-                    <option>INR (Rs)</option>
-                    <option>IQD (IQD)</option>
-                    <option>IRR (IRR)</option>
-                    <option>ISK (Ikr)</option>
-                    <option>JMD (J$)</option>
-                    <option>JOD (JD)</option>
-                    <option>JPY (¥)</option>
-                    <option>KES (Ksh)</option>
-                    <option>KHR (KHR)</option>
-                    <option>KMF (CF)</option>
-                    <option>KRW (₩)</option>
-                    <option>KWD (KD)</option>
-                    <option>KZT (KZT)</option>
-                    <option>LBP (LB£)</option>
-                    <option>LKR (SLRs)</option>
-                    <option>LTL (Lt)</option>
-                    <option>LVL (Ls)</option>
-                    <option>LYD (LD)</option>
-                    <option>MAD (MAD)</option>
-                    <option>MDL (MDL)</option>
-                    <option>MGA (MGA)</option>
-                    <option>MKD (MKD)</option>
-                    <option>MMK (MMK)</option>
-                    <option>MOP (MOP$)</option>
-                    <option>MUR (MURs)</option>
-                    <option>MXN (MX$)</option>
-                    <option>MYR (RM)</option>
-                    <option>MZN (MTn)</option>
-                    <option>NAD (N$)</option>
-                    <option>NGN (₦)</option>
-                    <option>NIO (C$)</option>
-                    <option>NOK (Nkr)</option>
-                    <option>NPR (NPRs)</option>
-                    <option>NZD (NZ$)</option>
-                    <option>OMR (OMR)</option>
-                    <option>PAB (B/.)</option>
-                    <option>PEN (S/.)</option>
-                    <option>PHP (₱)</option>
-                    <option>PKR (PKRs)</option>
-                    <option>PLN (zł)</option>
-                    <option>PYG (₲)</option>
-                    <option>QAR (QR)</option>
-                    <option>RON (RON)</option>
-                    <option>RSD (din.)</option>
-                    <option>RUB (RUB)</option>
-                    <option>RWF (RWF)</option>
-                    <option>SAR (SR)</option>
-                    <option>SDG (SDG)</option>
-                    <option>SEK (Skr)</option>
-                    <option>SGD (S$)</option>
-                    <option>SOS (Ssh)</option>
-                    <option>SYP (SY£)</option>
-                    <option>THB (฿)</option>
-                    <option>TND (DT)</option>
-                    <option>TOP (T$)</option>
-                    <option>TRY (TL)</option>
-                    <option>TTD (TT$)</option>
-                    <option>TWD (NT$)</option>
-                    <option>TZS (TSh)</option>
-                    <option>UAH (₴)</option>
-                    <option>UGX (USh)</option>
-                    <option>USD ($)</option>
-                    <option>UYU ($U)</option>
-                    <option>UZS (UZS)</option>
-                    <option>VEF (Bs.F.)</option>
-                    <option>VND (₫)</option>
-                    <option>XAF (FCFA)</option>
-                    <option>XOF (CFA)</option>
-                    <option>YER (YR)</option>
-                    <option>ZAR (R)</option>
-                    <option>ZMK (ZK)</option>
-                    <option>ZWL (ZWL$)</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="extraComments" class="form-label">Extra Comments</label>
-                <input type="text" class="form-control" id="extraComments" name="extraComments" placeholder="Anything else you want to tell the recruiter">
-            </div>
-            <div class="center-text top-small-buffer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>
+                <div class="center-text top-small-buffer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
 
-    <div class="container top-medium-buffer center-text">
-        <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
-            <div class="mb-3">
-                <label for="maxSalaryAcceptable" class="form-label">
-                    As <b>someone looking to hire this candidate</b>, what's the maximum salary you're willing to offer?
-                    <br>
-                    (<span id="currency-employer-form"></span>, <span id="gross-or-net-employer-form"></span>, <span id="annual-or-monthly-employer-form"></span>)
-                </label>
-                <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
+        <div class="container top-medium-buffer center-text">
+            <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
+                <div class="mb-3">
+                    <label for="maxSalaryAcceptable" class="form-label">
+                        As <b>someone looking to hire this candidate</b>, what's the maximum salary you're willing to offer?
+                        <br>
+                        (<span id="currency-employer-form"></span>, <span id="gross-or-net-employer-form"></span>, <span id="annual-or-monthly-employer-form"></span>)
+                    </label>
+                    <input type="number" class="form-control" id="maxSalaryAcceptable" name="maxSalaryAcceptable" required>
+                </div>
+                <div id="extra-comments-div-employer-form" style="display:none">
+                    <b>Extra comments: </b><span id="extra-comments-employer-form"></span>
+                </div>
+                <div class="top-small-buffer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="container top-large-buffer center-text" style="display:none" id="compatible-badge">
+            <h3><span class="badge bg-success">Compatible! :)</span></h3>
+        </div>
+
+        <div class="container top-large-buffer center-text" style="display:none" id="non-compatible-badge">
+            <h3><span class="badge bg-danger">Not Compatible! :(</span></h3>
+        </div>
+
+        <div class="container top-large-buffer center-text" style="display:none" id="error-badge">
+            <h3><span class="badge bg-warning">Something is wrong! Try again later</span></h3>
+        </div>
+
+        <div class="container top-large-buffer center-text" style="display:none" id="already-verified-badge">
+            <h3><span class="badge bg-primary">Compatibility was already checked for this id!</span></h3>
+        </div>
+
+        <div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
+            Share the following link with the recruiter:
+            <div class="card">
+                <div class="card-body" id="employer-salary-url-card"></div>
             </div>
-            <div id="extra-comments-div-employer-form" style="display:none">
-                <b>Extra comments: </b><span id="extra-comments-employer-form"></span>
-            </div>
-            <div class="top-small-buffer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>
+        </div>
 
-    <div class="container top-large-buffer center-text" style="display:none" id="compatible-badge">
-        <h3><span class="badge bg-success">Compatible! :)</span></h3>
-    </div>
-
-    <div class="container top-large-buffer center-text" style="display:none" id="non-compatible-badge">
-        <h3><span class="badge bg-danger">Not Compatible! :(</span></h3>
-    </div>
-
-    <div class="container top-large-buffer center-text" style="display:none" id="error-badge">
-        <h3><span class="badge bg-warning">Something is wrong! Try again later</span></h3>
-    </div>
-
-    <div class="container top-large-buffer center-text" style="display:none" id="already-verified-badge">
-        <h3><span class="badge bg-primary">Compatibility was already checked for this id!</span></h3>
-    </div>
-
-    <div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
-        Share the following link with the recruiter:
-        <div class="card">
-            <div class="card-body" id="employer-salary-url-card"></div>
+        <div class="container top-medium-buffer center-text" style="display:none" id="spinner">
+            <div class="spinner-border" role="status"></div>
         </div>
     </div>
 
-    <div class="container top-medium-buffer center-text" style="display:none" id="spinner">
-        <div class="spinner-border" role="status"></div>
+    <div id="what" style="display:none">
+        <div class="container">
+            <h1 class="home-header">What is this?</h1>
+        </div>
+
+        <div style='max-width: 35%' class="container top-medium-buffer">
+            You don't want to reveal your salary expectation to the company you're applying to. The company doesn't want to reveal their budget.
+            <br><br>
+            But neither of you want to waste time if your expectations are not compatible.
+            <br><br>
+            This app lets you know if your salary expectation is compatible with the company's budget, without revealing any numbers to either parties.
+            <br><br>
+            The code for this project is available at <a href="https://github.com/LLCampos/salary-standoff-ui">salary-standoff-ui</a> and <a href="https://github.com/LLCampos/salary-standoff-api">salary-standoff-api</a>.
+        </div>
+
+        <div id="mexican-standoff" class="container top-medium-buffer bottom-medium-buffer">
+            <figure>
+                <a href="https://impurepics.com/posts/2020-07-26-what-is-your-salary.html">
+                    <img style="width: 100%" src="images/mexican-standoff.jpeg" alt="what is your salary">
+                </a>
+                <figcaption class="center-text">
+                    <a href="https://impurepics.com/">impurepics</a>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div id="who" style="display:none">
+        <div class="container">
+            <h1 class="home-header">Who built this?</h1>
+        </div>
+
+        <div style='max-width: 35%' class="container top-medium-buffer">
+            This tool was built by me, Luís Campos. Check my <a href="https://github.com/llcampos/">GitHub</a> and my <a href="https://llcampos.wordpress.com/">personal page</a>.
+            <br><br>
+            If you have any questions/comments you can contact me at <a href="mailto:luis.filipe.lcampos@gmail.com">luis.filipe.lcampos@gmail.com</a>.
+        </div>
+    </div>
+
+    <div id="how" style="display:none">
+        <div class="container">
+            <h1 class="home-header">How to use this?</h1>
+        </div>
+
+        <div class="container top-medium-buffer bottom-medium-buffer">
+            <p>First, you insert your minimum acceptable salary. This is the value below which you think it would not be worth to take the job.</p>
+
+            <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/candidate-input-salary.gif" alt="candidate inputs salary expectation">
+
+            <p>The previous step will return you a link that you can send to the recruiter. Don't forget to tell the recruiter the details about the number you inserted in the form!</p>
+
+            <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter.gif" alt="candidate sends link to recruiter">
+
+            <p>With the link, the recruiter can now check if your salary expectation is compatible with the company budget.</p>
+
+            <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/employer-input-salary.gif" alt="recruiter inputs company budget">
+
+            <p>The recruiter can then tell you if you're compatible or not.</p>
+
+            <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter-2.gif" alt="recruiter tells candidate about compatibility">
+
+            <p>Note that during the process you never reveal you salary expectation to the recruiter nor does the recruiter reveal to you the company budget!</p>
+        </div>
     </div>
 </div>
 
-<div id="what" style="display:none">
-    <div class="container">
-        <h1 class="home-header">What is this?</h1>
-    </div>
 
-    <div style='max-width: 35%' class="container top-medium-buffer">
-        You don't want to reveal your salary expectation to the company you're applying to. The company doesn't want to reveal their budget.
-        <br><br>
-        But neither of you want to waste time if your expectations are not compatible.
-        <br><br>
-        This app lets you know if your salary expectation is compatible with the company's budget, without revealing any numbers to either parties.
-        <br><br>
-        The code for this project is available at <a href="https://github.com/LLCampos/salary-standoff-ui">salary-standoff-ui</a> and <a href="https://github.com/LLCampos/salary-standoff-api">salary-standoff-api</a>.
-    </div>
-
-    <div id="mexican-standoff" class="container top-medium-buffer bottom-medium-buffer">
-        <figure>
-            <a href="https://impurepics.com/posts/2020-07-26-what-is-your-salary.html">
-                <img style="width: 100%" src="images/mexican-standoff.jpeg" alt="what is your salary">
-            </a>
-            <figcaption class="center-text">
-                <a href="https://impurepics.com/">impurepics</a>
-            </figcaption>
-        </figure>
-    </div>
-</div>
-
-<div id="who" style="display:none">
-    <div class="container">
-        <h1 class="home-header">Who built this?</h1>
-    </div>
-
-    <div style='max-width: 35%' class="container top-medium-buffer">
-        This tool was built by me, Luís Campos. Check my <a href="https://github.com/llcampos/">GitHub</a> and my <a href="https://llcampos.wordpress.com/">personal page</a>.
-        <br><br>
-        If you have any questions/comments you can contact me at <a href="mailto:luis.filipe.lcampos@gmail.com">luis.filipe.lcampos@gmail.com</a>.
-    </div>
-</div>
-
-<div id="how" style="display:none">
-    <div class="container">
-        <h1 class="home-header">How to use this?</h1>
-    </div>
-
-    <div class="container top-medium-buffer bottom-medium-buffer">
-        <p>First, you insert your minimum acceptable salary. This is the value below which you think it would not be worth to take the job.</p>
-
-        <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/candidate-input-salary.gif" alt="candidate inputs salary expectation">
-
-        <p>The previous step will return you a link that you can send to the recruiter. Don't forget to tell the recruiter the details about the number you inserted in the form!</p>
-
-        <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter.gif" alt="candidate sends link to recruiter">
-
-        <p>With the link, the recruiter can now check if your salary expectation is compatible with the company budget.</p>
-
-        <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/employer-input-salary.gif" alt="recruiter inputs company budget">
-
-        <p>The recruiter can then tell you if you're compatible or not.</p>
-
-        <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter-2.gif" alt="recruiter tells candidate about compatibility">
-
-        <p>Note that during the process you never reveal you salary expectation to the recruiter nor does the recruiter reveal to you the company budget!</p>
-    </div>
+<div class="footer">
+    Are you a recruiter? You might also enjoy <a href="https://chrome.google.com/webstore/detail/recruiterstar/knpehhpgipjldjmlpdgleknoiblgpijk">RecruiterStar</a>.
 </div>
 
 <!--https://tholman.com/github-corners/-->
