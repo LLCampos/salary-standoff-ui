@@ -38,7 +38,7 @@
             <h1 class="home-header">Salary Standoff</h1>
         </div>
 
-        <div class="container top-medium-buffer">
+        <div class="container mt-5">
             <form id="candidate-salary-form" class="salary-form" onsubmit="return handleCandidateSalaryForm(this)">
                 <div class="mb-3 center-text">
                     <label for="minSalaryAcceptable" class="form-label">
@@ -190,13 +190,13 @@
                     <label for="extraComments" class="form-label">Extra Comments</label>
                     <input type="text" class="form-control" id="extraComments" name="extraComments" placeholder="Anything else you want to tell the recruiter">
                 </div>
-                <div class="center-text top-small-buffer">
+                <div class="center-text mt-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
 
-        <div class="container top-medium-buffer center-text">
+        <div class="container mt-5 center-text">
             <form id="employer-salary-form" class="salary-form" style="display:none" onsubmit="return handleEmployerSalaryForm(this)">
                 <div class="mb-3">
                     <label for="maxSalaryAcceptable" class="form-label">
@@ -209,36 +209,36 @@
                 <div id="extra-comments-div-employer-form" style="display:none">
                     <b>Extra comments: </b><span id="extra-comments-employer-form"></span>
                 </div>
-                <div class="top-small-buffer">
+                <div class="mt-4">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
 
-        <div class="container top-large-buffer center-text" style="display:none" id="compatible-badge">
+        <div class="container result-badge center-text" style="display:none" id="compatible-badge">
             <h3><span class="badge bg-success">Compatible! :)</span></h3>
         </div>
 
-        <div class="container top-large-buffer center-text" style="display:none" id="non-compatible-badge">
+        <div class="container result-badge center-text" style="display:none" id="non-compatible-badge">
             <h3><span class="badge bg-danger">Not Compatible! :(</span></h3>
         </div>
 
-        <div class="container top-large-buffer center-text" style="display:none" id="error-badge">
+        <div class="container result-badge center-text" style="display:none" id="error-badge">
             <h3><span class="badge bg-warning">Something is wrong! Try again later</span></h3>
         </div>
 
-        <div class="container top-large-buffer center-text" style="display:none" id="already-verified-badge">
+        <div class="container result-badge center-text" style="display:none" id="already-verified-badge">
             <h3><span class="badge bg-primary">Compatibility was already checked for this id!</span></h3>
         </div>
 
-        <div class="container top-medium-buffer" style="display:none" id="employer-salary-url">
+        <div class="container mt-5" style="display:none" id="employer-salary-url">
             Share the following link with the recruiter:
             <div class="card">
                 <div class="card-body" id="employer-salary-url-card"></div>
             </div>
         </div>
 
-        <div class="container top-medium-buffer center-text" style="display:none" id="spinner">
+        <div class="container mt-5 center-text" style="display:none" id="spinner">
             <div class="spinner-border" role="status"></div>
         </div>
     </div>
@@ -248,7 +248,7 @@
             <h1 class="home-header">What is this?</h1>
         </div>
 
-        <div style='max-width: 35%' class="container top-medium-buffer">
+        <div style='max-width: 35%' class="container mt-5">
             You don't want to reveal your salary expectation to the company you're applying to. The company doesn't want to reveal their budget.
             <br><br>
             But neither of you want to waste time if your expectations are not compatible.
@@ -258,7 +258,7 @@
             The code for this project is available at <a href="https://github.com/LLCampos/salary-standoff-ui">salary-standoff-ui</a> and <a href="https://github.com/LLCampos/salary-standoff-api">salary-standoff-api</a>.
         </div>
 
-        <div id="mexican-standoff" class="container top-medium-buffer bottom-medium-buffer">
+        <div id="mexican-standoff" class="container mt-5 mb-5">
             <figure>
                 <a href="https://impurepics.com/posts/2020-07-26-what-is-your-salary.html">
                     <img style="width: 100%" src="images/mexican-standoff.jpeg" alt="what is your salary">
@@ -275,7 +275,7 @@
             <h1 class="home-header">Who built this?</h1>
         </div>
 
-        <div style='max-width: 35%' class="container top-medium-buffer">
+        <div style='max-width: 35%' class="container mt-5">
             This tool was built by me, Luís Campos. Check my <a href="https://github.com/llcampos/">GitHub</a> and my <a href="https://llcampos.wordpress.com/">personal page</a>.
             <br><br>
             If you have any questions/comments you can contact me at <a href="mailto:luis.filipe.lcampos@gmail.com">luis.filipe.lcampos@gmail.com</a>.
@@ -287,22 +287,22 @@
             <h1 class="home-header">How to use this?</h1>
         </div>
 
-        <div class="container top-medium-buffer bottom-medium-buffer">
+        <div class="container mt-5 mb-5">
             <p>First, you insert your minimum acceptable salary. This is the value below which you think it would not be worth to take the job.</p>
 
-            <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/candidate-input-salary.gif" alt="candidate inputs salary expectation">
+            <img class="mt-5 mb-5 form-gif" src="images/candidate-input-salary.gif" alt="candidate inputs salary expectation">
 
             <p>The previous step will return you a link that you can send to the recruiter. Don't forget to tell the recruiter the details about the number you inserted in the form!</p>
 
-            <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter.gif" alt="candidate sends link to recruiter">
+            <img class="mt-5 mb-5 centered-image" src="images/message-to-recruiter.gif" alt="candidate sends link to recruiter">
 
             <p>With the link, the recruiter can now check if your salary expectation is compatible with the company budget.</p>
 
-            <img class="top-medium-buffer bottom-medium-buffer form-gif" src="images/employer-input-salary.gif" alt="recruiter inputs company budget">
+            <img class="mt-5 mb-5 form-gif" src="images/employer-input-salary.gif" alt="recruiter inputs company budget">
 
             <p>The recruiter can then tell you if you're compatible or not.</p>
 
-            <img class="top-medium-buffer bottom-medium-buffer centered-image" src="images/message-to-recruiter-2.gif" alt="recruiter tells candidate about compatibility">
+            <img class="mt-5 mb-5 centered-image" src="images/message-to-recruiter-2.gif" alt="recruiter tells candidate about compatibility">
 
             <p>Note that during the process you never reveal you salary expectation to the recruiter nor does the recruiter reveal to you the company budget!</p>
         </div>

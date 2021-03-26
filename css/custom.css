@@ -11,20 +11,8 @@ html {
     text-align: center;
 }
 
-.top-small-buffer {
-    margin-top: 20px;
-}
-
-.top-medium-buffer {
-    margin-top: 60px;
-}
-
-.top-large-buffer {
+.result-badge {
     margin-top: 120px;
-}
-
-.bottom-medium-buffer {
-    margin-bottom: 60px;
 }
 
 .salary-form {
