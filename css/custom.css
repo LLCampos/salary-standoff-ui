@@ -50,6 +50,24 @@ html {
     text-align: center;
 }
 
+@media all and (min-width: 500px) {
+    #small-ad {
+        display: none;
+    }
+    #big-ad {
+        display: block;
+    }
+}
+
+@media all and (max-width: 500px) {
+    #small-ad {
+        display: block;
+    }
+    #big-ad {
+        display: none;
+    }
+}
+
 /* Hide number input arrows */
 
 /* Chrome, Safari, Edge, Opera */
